@@ -15,7 +15,7 @@ import (
 	"github.com/siddontang/go-mysql/replication"
 )
 
-var RegexpMatchDdlQuery *regexp.Regexp = regexp.MustCompile(`^\s*(alter|create|rename|truncate|create)\s+table`)
+var RegexpMatchDdlQuery *regexp.Regexp = regexp.MustCompile(`^\s*(alter|create|rename|truncate|drop)\s+table`)
 
 var Stats_Result_Header_Column_names []string = []string{"binlog", "starttime", "stoptime",
 	"startpos", "stoppos", "inserts", "updates", "deletes", "database", "table"}
