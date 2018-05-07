@@ -115,7 +115,7 @@ func ReverseFileToNewFileOneByOneLineAndKeepTrxBatchRead(srcFile string, destFil
 
 		}
 		if keepTrx && lastTrxIdx != trxPoses[batchIdx][1] {
-			destFH.WriteString("commit\nbegin\n")
+			destFH.WriteString("commit;\nbegin;\n")
 		}
 		lastTrxIdx = trxPoses[batchIdx][1]
 		_, err = destFH.WriteString(strings.Join(strArrStrs, LineSep))
@@ -137,7 +137,7 @@ func ReverseFileToNewFileOneByOneLineAndKeepTrxBatchRead(srcFile string, destFil
 	}
 
 	if keepTrx {
-		destFH.WriteString("commit\n")
+		destFH.WriteString("commit;\n")
 	}
 
 	return nil
